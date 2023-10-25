@@ -1,0 +1,68 @@
+﻿<Page x:Class="CourseLearning_Lite.Pages.ReadingCoursesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseLearning_Lite.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReadingCoursesPage" Background="AliceBlue">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!--Разметка для загрузки страницы-->
+                <StackPanel x:Name="PageLoadingLayout">
+                    <Button Content="Открыть файл" x:Name="FindFileButton" Click="FindFileButton_Click" 
+                        Margin="300 225 300 0" Background="White" FontWeight="Bold"
+                        Width="160" Height="30">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6"></Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <!--Разметка для отображения страницы-->
+                <StackPanel x:Name="PageReadingLayout">
+
+                    <TextBlock Text="Страницы: 1" x:Name="PageCountReading" FontSize="16" HorizontalAlignment="Right"/>
+
+                    <!-- Отображение заголовка страницы и его номера -->
+                    <TextBlock x:Name="HeaderPageReading" FontSize="20" HorizontalAlignment="Left" />
+
+                    <!-- Отображение текста страницы -->
+                    <TextBlock x:Name="TextPageReading" Margin="10" TextWrapping="Wrap"
+           HorizontalAlignment="Stretch" TextAlignment="Left"/>
+
+
+
+                    <!-- Отображение вопроса теста -->
+                    <TextBlock x:Name="TestQuestionReading" Margin="10" />
+
+                    <!-- Отображение вариантов ответа на тест -->
+                    <StackPanel x:Name="AnswersOnTestQuestionReading" Margin="10">
+                        <RadioButton x:Name="FirstAnswerTestReading" GroupName="Answers" />
+                        <RadioButton x:Name="SecondAnswerTestReading" GroupName="Answers" />
+                        <RadioButton x:Name="ThirdAnswerTestReading" GroupName="Answers" />
+                        <RadioButton x:Name="FourAnswerTestReading" GroupName="Answers" />
+                    </StackPanel>
+
+                    <!--Вывод стандартного вопроса-->
+                    <TextBlock x:Name="StandartQuestionReading" Margin="10" />
+
+                    <!-- Ввод предполагаемого ответа -->
+                    <TextBox x:Name="StandartAnswerReading" Margin="10" />
+
+                    <!-- Кнопка перехода на следующую страницу -->
+                    <Button x:Name="NextPageReadingCoursesButton" Content="Следующая страница" Click="NextPageReadingCoursesButton_Click" Margin="10" />
+
+                    <!--Кнопка для последней страницы -->
+                    <Button x:Name="LastPageReadingCoursesButton" Content="Завершить курс" Click="LastPageReadingCoursesButton_Click" 
+                       Visibility="Collapsed" Margin="10" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
