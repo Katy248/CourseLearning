@@ -24,8 +24,9 @@
                         <ImageBrush ImageSource="/Images/icons8-writing-48.png" Stretch="Fill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button x:Name="sideBarCreatingCourses" Content="Создание курсов" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
+                <Button x:Name="sideBarCreatingCourses" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
                     Background="AliceBlue" Click="sideBarCreatingCourses_Click">
+                    <TextBlock Text="Создание курсов" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"></Setter>
@@ -42,8 +43,9 @@
                         <ImageBrush ImageSource="/Images/icons8-courses-48.png" Stretch="Fill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button x:Name="sideBarReadingCourses" Content="Прохождение курсов" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
+                <Button x:Name="sideBarReadingCourses" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
                     Background="AliceBlue" Click="sideBarReadingCourses_Click">
+                    <TextBlock Text="Прохождение курсов" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"></Setter>
@@ -58,8 +60,9 @@
                         <ImageBrush ImageSource="/Images/icons8-help-48.png" Stretch="Fill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button x:Name="sideBarHelp" Content="Справка" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
+                <Button x:Name="sideBarHelp" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
                     Background="AliceBlue" Click="sideBarHelp_Click">
+                    <TextBlock Text="Справка" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"></Setter>
@@ -68,14 +71,15 @@
                 </Button>
             </Grid>
 
-            <Grid Margin="0 350 0 0">
+            <Grid Margin="0 320 0 0">
                 <Ellipse HorizontalAlignment="Left" Height="35" Margin="10,0,0,0" VerticalAlignment="Center" Width="35">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Images/icons8-logout-48.png" Stretch="Fill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <Button x:Name="sideBarLogout" Content="Выход" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
-                    Background="AliceBlue" Click="sideBarLogout_Click">
+                <Button x:Name="sideBarLogout" Margin="50,10,0,10" HorizontalAlignment="Left" Width="140" 
+                    Background="AliceBlue" Click="sideBarLogout_Click" >
+                    <TextBlock Text="Выход" TextWrapping="Wrap" TextAlignment="Center" FontSize="16"/>
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="10"></Setter>
