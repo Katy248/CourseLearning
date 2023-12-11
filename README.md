@@ -6,6 +6,6 @@
 - Исправление ошибки, из за которой ломается итератор при возвращение на предыдущую страницу, во время создания курса
 - Перенести окна в отдельную папку
 
-| Cat pics                            | Dog pics                            | Lizzard                                     |
+| Страница создания курса             | Страница прохождения курса          | Справка                                     |
 | ----------------------------------- | ----------------------------------- | ------------------------------------------- |
-| ![cat](https://example.com/cat.png) | ![dog](https://example.com/dog.png) | ![lizzard](https://example.com/lizzard.png) |
+| ![скриншот страницы создания курса]([https://example.com/cat.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_create.png)https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_create.png) | ![скриншот страницы прохождения курса]([https://example.com/dog.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_read.png)) | ![скриншот справки]([https://example.com/lizzard.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_help.png)https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_help.png) |
