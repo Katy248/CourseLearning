@@ -8,4 +8,4 @@
 
 | Страница создания курса             | Страница прохождения курса          | Справка                                     |
 | ----------------------------------- | ----------------------------------- | ------------------------------------------- |
-| ![скриншот страницы создания курса]([https://example.com/cat.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_create.png)https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_create.png) | ![скриншот страницы прохождения курса]([https://example.com/dog.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_read.png)) | ![скриншот справки]([https://example.com/lizzard.png](https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_help.png)https://github.com/BlackNetik/CourseLearning_Lite/blob/master/Images/github/App_help.png) |
+| ![скриншот страницы создания курса](Images/github/App_create.png) | ![скриншот страницы прохождения курса](Images/github/App_read.png) | ![скриншот справки](Images/github/App_help.png) |
