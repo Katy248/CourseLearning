@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseLearning_Lite"
         mc:Ignorable="d"
-        MinHeight="600" MinWidth="1000" Height="600" Width="1000" WindowStyle="ToolWindow" Background="AliceBlue">
+        MinHeight="600" MinWidth="1100" Height="600" Width="1100" WindowStyle="ToolWindow" Background="AliceBlue">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

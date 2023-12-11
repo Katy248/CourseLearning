@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -109,31 +110,24 @@ namespace CourseLearning_Lite.Pages
 
         private void NextPageCreating_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckHeaderAndText())
-            {
-                return;
-            }
+            // Добавление объекта в список объектов
+            PageObject result = ExtractPageObjectFromMarkup();
 
-            //Смена итератора
-            actualIterator += 1;
-
-            //Добавление объекта в список объектов
             if (actualIterator > pageObjects.Count)
             {
-                PageObject result = ExtractPageObjectFromMarkup();
                 pageObjects.Add(result);
             }
             else
             {
-                PageObject result = ExtractPageObjectFromMarkup();
                 pageObjects[actualIterator - 1] = result;
             }
 
-            //Вывод кнопки перехода на прошлую страницу
+            // Установка actualIterator в индекс новой страницы
+            actualIterator = pageObjects.Count + 1;
+
+            // Вывод кнопки перехода на прошлую страницу
             PreviousPageCreating.Visibility = Visibility.Visible;
 
-
-            
             FillPageObjectsCourseCreating(pageObjects, actualIterator);
 
         }
@@ -145,9 +139,23 @@ namespace CourseLearning_Lite.Pages
                 return;
             }
 
-            if (actualIterator == 2) PreviousPageCreating.Visibility = Visibility.Collapsed;
+            // Проверяем, не выходит ли итератор за границы списка
+            if (actualIterator > 1)
+            {
+                // Сохраняем данные текущей страницы
+                SaveCurrentPage();
 
-            //Добавление объекта в список объектов
+                // Уменьшаем итератор
+                actualIterator -= 1;
+
+                // Загружаем данные предыдущей страницы
+                LoadPageData();
+            }
+        }
+
+        // Метод для сохранения данных текущей страницы
+        private void SaveCurrentPage()
+        {
             if (actualIterator > pageObjects.Count)
             {
                 PageObject result = ExtractPageObjectFromMarkup();
@@ -158,14 +166,19 @@ namespace CourseLearning_Lite.Pages
                 PageObject result = ExtractPageObjectFromMarkup();
                 pageObjects[actualIterator - 1] = result;
             }
+        }
 
-
-            //Cмена итератора
-            actualIterator -= 1;
+        // Метод для загрузки данных предыдущей страницы
+        private void LoadPageData()
+        {
+            // Заполняем значения полей разметки
             FillPageObjectsCourseCreating(pageObjects, actualIterator);
 
-
+            // Проверяем, нужно ли скрыть кнопку предыдущей страницы
+            PreviousPageCreating.Visibility = (actualIterator == 1) ? Visibility.Collapsed : Visibility.Visible;
         }
+
+
 
         //Функция, которая заполняет значения полей разметки
         public void FillPageObjectsCourseCreating(List<PageObject> pObjects, int iterator)

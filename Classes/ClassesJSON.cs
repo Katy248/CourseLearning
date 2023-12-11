@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CourseLearning_Lite.Classes
 {
+    [DebuggerDisplay("Page {page_number}: {header}, {text};")]
     public class PageObject
     {
         public int page_number { get; set; }
