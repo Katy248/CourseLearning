@@ -212,6 +212,7 @@ namespace CourseLearning_Lite.Pages
                 RegularQuestion.Text = pObjects[iterator].question;
                 CorrectAnswerText.Text = pObjects[iterator].correct_answer;
             }
+            ScrollToTop();
         }
 
         //Функция, которая очищает значения полей разметки
@@ -233,6 +234,12 @@ namespace CourseLearning_Lite.Pages
         private bool CheckHeaderAndText()
         {
             return PageHeader.Text == "" || PageText.Text == "";
+        }
+
+        private void ScrollToTop()
+        {
+            // Установка вертикального смещения прокрутки в 0 для прокрутки вверх
+            CreatingScroll.ScrollToVerticalOffset(0);
         }
     }
 }

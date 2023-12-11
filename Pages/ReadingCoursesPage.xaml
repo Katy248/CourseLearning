@@ -9,7 +9,7 @@
       Title="ReadingCoursesPage" Background="AliceBlue">
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="ReadingScroll">
             <StackPanel>
                 <!--Разметка для загрузки страницы-->
                 <StackPanel x:Name="PageLoadingLayout">

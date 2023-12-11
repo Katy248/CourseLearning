@@ -11,7 +11,7 @@
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Name="CreatingScroll">
         <StackPanel>
             <!-- Course page number -->
             <TextBlock x:Name="PageNumber" Text="Страница: 1" FontSize="22" Margin="20" />

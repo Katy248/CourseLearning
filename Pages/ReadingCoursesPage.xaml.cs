@@ -148,6 +148,7 @@ namespace CourseLearning_Lite.Pages
                 }
 
             }
+            ScrollToTop();
         }
 
         //Функция, проверяющая последняя ли это страница в списке
@@ -232,6 +233,12 @@ namespace CourseLearning_Lite.Pages
         public bool ResultAnswerReading(PageObject pObject)
         {
             return StandartAnswerReading.Text == pObject.correct_answer.ToString();
+        }
+
+        private void ScrollToTop()
+        {
+            // Установка вертикального смещения прокрутки в 0 для прокрутки вверх
+            ReadingScroll.ScrollToVerticalOffset(0);
         }
     }
 }
