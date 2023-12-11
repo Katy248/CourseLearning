@@ -78,8 +78,7 @@ namespace CourseLearning_Lite.Pages
         private void SaveButtonCreating_Click(object sender, RoutedEventArgs e)
         {
             //Добавление объекта в список объектов
-            PageObject result = ExtractPageObjectFromMarkup();
-            pageObjects.Add(result);
+            SaveCurrentPage();
 
             // Serialize the modified list of PageObject objects back into a JSON string
             string newJsonString = JsonSerializer.Serialize(pageObjects, new JsonSerializerOptions { WriteIndented = true, Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic) });
@@ -110,27 +109,32 @@ namespace CourseLearning_Lite.Pages
 
         private void NextPageCreating_Click(object sender, RoutedEventArgs e)
         {
-            // Добавление объекта в список объектов
-            PageObject result = ExtractPageObjectFromMarkup();
+            // Проверка наличия текущей страницы в списке
+            PageObject existingPage = pageObjects.FirstOrDefault(p => p.page_number == actualIterator);
 
-            if (actualIterator > pageObjects.Count)
+            if (existingPage != null)
             {
-                pageObjects.Add(result);
+                // Если страница существует, обновляем её данные
+                existingPage = ExtractPageObjectFromMarkup();
             }
             else
             {
-                pageObjects[actualIterator - 1] = result;
+                // Если страницы нет, добавляем новую
+                PageObject result = ExtractPageObjectFromMarkup();
+                pageObjects.Add(result);
             }
 
-            // Установка actualIterator в индекс новой страницы
-            actualIterator = pageObjects.Count + 1;
+            // Увеличиваем actualIterator на 1
+            actualIterator += 1;
 
             // Вывод кнопки перехода на прошлую страницу
             PreviousPageCreating.Visibility = Visibility.Visible;
 
+            // Заполняем значения полей разметки для новой страницы
             FillPageObjectsCourseCreating(pageObjects, actualIterator);
-
         }
+
+
 
         private void PreviousPageCreating_Click(object sender, RoutedEventArgs e)
         {
