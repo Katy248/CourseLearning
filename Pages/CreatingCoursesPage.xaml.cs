@@ -241,5 +241,13 @@ namespace CourseLearning_Lite.Pages
             // Установка вертикального смещения прокрутки в 0 для прокрутки вверх
             CreatingScroll.ScrollToVerticalOffset(0);
         }
+
+        //Перенос многострочной информации в одну строку
+        private string FixTextForJSON(string str)
+        {
+            str.Replace("\r\n\r\n", "\n");
+            str.Replace("\r\n", " ");
+            return str;
+        }
     }
 }
