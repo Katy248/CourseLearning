@@ -42,9 +42,5 @@ namespace CourseLearning_Lite
             contentFrame.Navigate(new HelpPage());
         }
 
-        private void sideBarLogout_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }
