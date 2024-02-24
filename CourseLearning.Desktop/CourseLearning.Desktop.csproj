@@ -2,28 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>false</InvariantGlobalization>
     <UseWPF>true</UseWPF>
 
     <RootNamespace>CourseLearning.Desktop</RootNamespace>
-  </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Pages\ReadingCoursesPage.xaml.cs~RF242e582.TMP" />
-    <None Remove="Resources\Icons\CourseLearning.ico" />
-    <None Remove="Resources\Icons\icons8-courses-48.png" />
-    <None Remove="Resources\Icons\icons8-help-48.png" />
-    <None Remove="Resources\Icons\icons8-list-courses-48.png" />
-    <None Remove="Resources\Icons\icons8-logout-48.png" />
-    <None Remove="Resources\Icons\icons8-profile.png" />
-    <None Remove="Resources\Icons\icons8-writing-48.png" />
-  </ItemGroup>
+    <ApplicationIcon>Resources\Icons\CourseLearning.ico</ApplicationIcon>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="OrchardCore.Localization.Core" Version="1.8.2" />
   </ItemGroup>
 
   <ItemGroup>
