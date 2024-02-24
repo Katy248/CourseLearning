@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CourseLearning_Lite.Properties
+namespace CourseLearning.Properties
 {
 
 
