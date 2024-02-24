@@ -1,79 +1,66 @@
-﻿using CourseLearning_Lite.Classes;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CourseLearning.Core.Models;
+using Microsoft.Win32;
 
-namespace CourseLearning_Lite.Pages
+namespace CourseLearning.Desktop.Pages
 {
     /// <summary>
     /// Логика взаимодействия для CreatingCoursesPage.xaml
     /// </summary>
-    public partial class CreatingCoursesPage : Page
+    public partial class CreatingCoursesPage : System.Windows.Controls.Page
     {
         //Лист страниц, необходимый для дальнейшего сохранения в JSON файле
-        List<PageObject> pageObjects = new List<PageObject>();
+        private List<Page> pageObjects = new List<Page>();
 
         //Итератор для страниц
-        int actualIterator = 1;
+        private int actualIterator = 1;
 
         public CreatingCoursesPage()
         {
             InitializeComponent();
         }
 
-        private PageObject ExtractPageObjectFromMarkup()
+        private Page ExtractPageObjectFromMarkup()
         {
-            PageObject pageObject = new PageObject();
+            var pageObject = new Page();
 
             // Extract page number
             string pageNumberText = PageNumber.Text;
             string[] pageNumberParts = pageNumberText.Split(':');
             int pageNumber = int.Parse(pageNumberParts[1].Trim());
-            pageObject.page_number = pageNumber;
+            pageObject.PageNumber = pageNumber;
 
             // Extract header
-            pageObject.header = PageHeader.Text;
+            pageObject.Header = PageHeader.Text;
 
             // Extract text
-            pageObject.text = PageText.Text;
+            pageObject.Text = PageText.Text;
 
             // Extract standardized test
-            TestObject testObject = new TestObject();
-            testObject.question = TestQuestion.Text;
-            testObject.answer_options = new string[]
+            Test testObject = new Test();
+            testObject.Question = TestQuestion.Text;
+            testObject.AnswerOptions = new string[]
             {
                 AnswerOption1.Text,
                 AnswerOption2.Text,
                 AnswerOption3.Text,
                 AnswerOption4.Text
             };
-            testObject.correct_answer = CorrectAnswer.SelectedIndex + 1;
-            pageObject.standardized_test = testObject;
+            testObject.CorrectAnswer = CorrectAnswer.SelectedIndex + 1;
+            pageObject.StandartTest = testObject;
 
             // Extract regular question with written answer
-            pageObject.question = RegularQuestion.Text;
-            pageObject.correct_answer = CorrectAnswerText.Text;
+            pageObject.Question = RegularQuestion.Text;
+            pageObject.CorrectAnswer = CorrectAnswerText.Text;
 
             return pageObject;
         }
-
 
         private void SaveButtonCreating_Click(object sender, RoutedEventArgs e)
         {
@@ -99,10 +86,8 @@ namespace CourseLearning_Lite.Pages
                 filePath = saveFileDialog.FileName;
             }
 
-
             // Write the new JSON string back to the file, overwriting the existing data
             File.WriteAllText(filePath, newJsonString);
-
 
             MessageBox.Show("Курс сохранен!");
         }
@@ -110,7 +95,7 @@ namespace CourseLearning_Lite.Pages
         private void NextPageCreating_Click(object sender, RoutedEventArgs e)
         {
             // Проверка наличия текущей страницы в списке
-            PageObject existingPage = pageObjects.FirstOrDefault(p => p.page_number == actualIterator);
+            Page existingPage = pageObjects.FirstOrDefault(p => p.PageNumber == actualIterator);
 
             if (existingPage != null)
             {
@@ -120,7 +105,7 @@ namespace CourseLearning_Lite.Pages
             else
             {
                 // Если страницы нет, добавляем новую
-                PageObject result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects.Add(result);
             }
 
@@ -133,8 +118,6 @@ namespace CourseLearning_Lite.Pages
             // Заполняем значения полей разметки для новой страницы
             FillPageObjectsCourseCreating(pageObjects, actualIterator);
         }
-
-
 
         private void PreviousPageCreating_Click(object sender, RoutedEventArgs e)
         {
@@ -162,12 +145,12 @@ namespace CourseLearning_Lite.Pages
         {
             if (actualIterator > pageObjects.Count)
             {
-                PageObject result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects.Add(result);
             }
             else
             {
-                PageObject result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects[actualIterator - 1] = result;
             }
         }
@@ -182,10 +165,8 @@ namespace CourseLearning_Lite.Pages
             PreviousPageCreating.Visibility = (actualIterator == 1) ? Visibility.Collapsed : Visibility.Visible;
         }
 
-
-
         //Функция, которая заполняет значения полей разметки
-        public void FillPageObjectsCourseCreating(List<PageObject> pObjects, int iterator)
+        public void FillPageObjectsCourseCreating(List<Page> pObjects, int iterator)
         {
             if (iterator > pageObjects.Count)
             {
@@ -200,17 +181,17 @@ namespace CourseLearning_Lite.Pages
                 //Отнимаем еденицу от итератора, поскольку он не совпадает с индексом
                 iterator -= 1;
                 PageNumber.Text = $"Страница: {actualIterator}";
-                PageHeader.Text = pObjects[iterator].header;
-                PageText.Text = pObjects[iterator].text;
-                TestQuestion.Text = pObjects[iterator].standardized_test.question;
-                AnswerOption1.Text = pObjects[iterator].standardized_test.answer_options[0];
-                AnswerOption2.Text = pObjects[iterator].standardized_test.answer_options[1];
-                AnswerOption3.Text = pObjects[iterator].standardized_test.answer_options[2];
-                AnswerOption4.Text = pObjects[iterator].standardized_test.answer_options[3];
-                CorrectAnswer.SelectedIndex = pObjects[iterator].standardized_test.correct_answer - 1;
+                PageHeader.Text = pObjects[iterator].Header;
+                PageText.Text = pObjects[iterator].Text;
+                TestQuestion.Text = pObjects[iterator].StandartTest.Question;
+                AnswerOption1.Text = pObjects[iterator].StandartTest.AnswerOptions[0];
+                AnswerOption2.Text = pObjects[iterator].StandartTest.AnswerOptions[1];
+                AnswerOption3.Text = pObjects[iterator].StandartTest.AnswerOptions[2];
+                AnswerOption4.Text = pObjects[iterator].StandartTest.AnswerOptions[3];
+                CorrectAnswer.SelectedIndex = pObjects[iterator].StandartTest.CorrectAnswer - 1;
 
-                RegularQuestion.Text = pObjects[iterator].question;
-                CorrectAnswerText.Text = pObjects[iterator].correct_answer;
+                RegularQuestion.Text = pObjects[iterator].Question;
+                CorrectAnswerText.Text = pObjects[iterator].CorrectAnswer;
             }
             ScrollToTop();
         }

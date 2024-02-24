@@ -1,10 +1,10 @@
-﻿<Page x:Class="CourseLearning_Lite.Pages.CreatingCoursesPage"
+﻿<Page x:Class="CourseLearning.Desktop.Pages.CreatingCoursesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CourseLearning_Lite.Pages"
-      mc:Ignorable="d" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:CourseLearning.Desktop.Pages"
+      mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreatingCoursesPage" Background="AliceBlue">
 
@@ -15,7 +15,6 @@
         <StackPanel>
             <!-- Course page number -->
             <TextBlock x:Name="PageNumber" Text="Страница: 1" FontSize="22" Margin="20" />
-
 
             <!-- Page header -->
             <TextBox x:Name="PageHeader" Text="" FontSize="26" Margin="20">
@@ -28,7 +27,7 @@
 
             <!-- Page text (scrolling) -->
 
-            <TextBox x:Name="PageText" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" 
+            <TextBox x:Name="PageText" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"
                  Height="300" Margin="20 0 20 0" SpellCheck.IsEnabled="True" Language="ru-ru" FontSize="22">
                 <TextBox.ToolTip>
                     <ToolTip>
@@ -37,12 +36,11 @@
                 </TextBox.ToolTip>
             </TextBox>
 
-
             <!-- Standardized test question -->
             <StackPanel Margin="20,10">
-                <TextBlock Text="Тест с вариантами ответа:" FontWeight="Bold" FontSize="18"/>
+                <TextBlock Text="Тест с вариантами ответа:" FontWeight="Bold" FontSize="18" />
                 <StackPanel Orientation="Vertical"  Margin="0,5" HorizontalAlignment="Stretch">
-                    <TextBlock Text="Вопрос к тесту: " HorizontalAlignment="Left" FontSize="16"/>
+                    <TextBlock Text="Вопрос к тесту: " HorizontalAlignment="Left" FontSize="16" />
                     <TextBox x:Name="TestQuestion" TextWrapping="Wrap">
                         <TextBox.ToolTip>
                             <ToolTip>
@@ -53,29 +51,28 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"  Margin="0,5" HorizontalAlignment="Stretch">
-                    <TextBlock Text="Первый вариант ответа: " HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBox x:Name="AnswerOption1" TextWrapping="Wrap"/>
+                    <TextBlock Text="Первый вариант ответа: " HorizontalAlignment="Left" FontSize="16" />
+                    <TextBox x:Name="AnswerOption1" TextWrapping="Wrap" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"  Margin="0,5" HorizontalAlignment="Stretch">
-                    <TextBlock Text="Второй вариант ответа: " Width="160" HorizontalAlignment="Left" FontSize="16"/>
+                    <TextBlock Text="Второй вариант ответа: " Width="160" HorizontalAlignment="Left" FontSize="16" />
                     <TextBox x:Name="AnswerOption2" TextWrapping="Wrap">
                     </TextBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"  Margin="0,5" HorizontalAlignment="Stretch">
-                    <TextBlock Text="Третий вариант ответа: " HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBox x:Name="AnswerOption3" TextWrapping="Wrap"/>
-
+                    <TextBlock Text="Третий вариант ответа: " HorizontalAlignment="Left" FontSize="16" />
+                    <TextBox x:Name="AnswerOption3" TextWrapping="Wrap" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"  Margin="0,5" HorizontalAlignment="Stretch">
-                    <TextBlock Text="Четвертый вариант ответа: " HorizontalAlignment="Left" FontSize="16"/>
-                    <TextBox x:Name="AnswerOption4" TextWrapping="Wrap"/>
+                    <TextBlock Text="Четвертый вариант ответа: " HorizontalAlignment="Left" FontSize="16" />
+                    <TextBox x:Name="AnswerOption4" TextWrapping="Wrap" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,5" HorizontalAlignment="Left">
-                    <TextBlock Text="Верный вариант ответа: " VerticalAlignment="Center" FontSize="16"/>
+                    <TextBlock Text="Верный вариант ответа: " VerticalAlignment="Center" FontSize="16" />
                     <ComboBox x:Name="CorrectAnswer" SelectedIndex="0" FontSize="14">
                         <ComboBoxItem Content="1" />
                         <ComboBoxItem Content="2" />
@@ -86,12 +83,11 @@
                         </ComboBox.ToolTip>
                     </ComboBox>
                 </StackPanel>
-
             </StackPanel>
 
             <!-- Regular question with written answer -->
             <StackPanel Margin="20,10">
-                <TextBlock Text="Вопрос: " FontWeight="Bold" FontSize="16"/>
+                <TextBlock Text="Вопрос: " FontWeight="Bold" FontSize="16" />
                 <TextBox x:Name="RegularQuestion" TextWrapping="Wrap" Margin="0,5" FontSize="16">
                     <TextBox.ToolTip>
                         <ToolTip>
@@ -99,15 +95,15 @@
                         </ToolTip>
                     </TextBox.ToolTip>
                 </TextBox>
-                <TextBlock Text="Корректный письменный ответ к вопросу: " FontSize="16"/>
-                <TextBox x:Name="CorrectAnswerText" TextWrapping="Wrap" Margin="0,5" FontSize="16"/>
+                <TextBlock Text="Корректный письменный ответ к вопросу: " FontSize="16" />
+                <TextBox x:Name="CorrectAnswerText" TextWrapping="Wrap" Margin="0,5" FontSize="16" />
             </StackPanel>
 
             <StackPanel  Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
                 <!-- Кнопка перехода на предидущую страницу-->
                 <Button x:Name="PreviousPageCreating" Content="Перейти на предыдущую страницу"
                     Background="White" FontSize="18" Margin="0 0 10 0" Click="PreviousPageCreating_Click"
-                    Visibility="Collapsed" >
+                    Visibility="Collapsed">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="2"></Setter>
@@ -116,7 +112,7 @@
                 </Button>
 
                 <!-- Кнопка сохранения курса -->
-                <Button x:Name="SaveButtonCreating" Content="Сохранить курс" 
+                <Button x:Name="SaveButtonCreating" Content="Сохранить курс"
                     Background="White" FontSize="18" Margin="10 0 10 0" Click="SaveButtonCreating_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -125,9 +121,8 @@
                     </Button.Resources>
                 </Button>
 
-
                 <!-- Кнопка перехода на новую страницу курса -->
-                <Button x:Name="NextPageCreating" Content="Перейти на следующую страницу" 
+                <Button x:Name="NextPageCreating" Content="Перейти на следующую страницу"
                     Margin="10 0 0 0" Background="White" FontSize="18" Click="NextPageCreating_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
