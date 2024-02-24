@@ -1,7 +1,6 @@
-EXECUTABLE=cl-l.exe
 PROJECT=CourseLearning.Desktop
 CONFIGURATION=Release
-TARGET_FRAMEWORK=net7.0-windows
+TARGET_FRAMEWORK=net8.0-windows
 
 all: build
 
