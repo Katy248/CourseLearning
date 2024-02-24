@@ -38,7 +38,7 @@ public partial class ReadingCoursesPage : System.Windows.Controls.Page
             return;
         }
         //Переход по итератору на новую страницу
-        if (_currentPageIndex < _pages.Count)
+        if (_currentPageIndex < _pages.Count - 1)
         {
             _currentPageIndex++;
         }
