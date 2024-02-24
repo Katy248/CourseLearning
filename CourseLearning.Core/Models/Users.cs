@@ -1,4 +1,4 @@
-﻿namespace CourseLearning.Desktop.Models;
+﻿namespace CourseLearning.Core.Models;
 
 public class User
 {

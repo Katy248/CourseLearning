@@ -5,7 +5,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Windows;
-using CourseLearning.Desktop.Models;
+using CourseLearning.Core.Models;
 using Microsoft.Win32;
 
 namespace CourseLearning.Desktop.Pages
@@ -16,7 +16,7 @@ namespace CourseLearning.Desktop.Pages
     public partial class CreatingCoursesPage : System.Windows.Controls.Page
     {
         //Лист страниц, необходимый для дальнейшего сохранения в JSON файле
-        private List<Models.Page> pageObjects = new List<Models.Page>();
+        private List<Page> pageObjects = new List<Page>();
 
         //Итератор для страниц
         private int actualIterator = 1;
@@ -26,9 +26,9 @@ namespace CourseLearning.Desktop.Pages
             InitializeComponent();
         }
 
-        private Models.Page ExtractPageObjectFromMarkup()
+        private Page ExtractPageObjectFromMarkup()
         {
-            var pageObject = new Models.Page();
+            var pageObject = new Page();
 
             // Extract page number
             string pageNumberText = PageNumber.Text;
@@ -95,7 +95,7 @@ namespace CourseLearning.Desktop.Pages
         private void NextPageCreating_Click(object sender, RoutedEventArgs e)
         {
             // Проверка наличия текущей страницы в списке
-            Models.Page existingPage = pageObjects.FirstOrDefault(p => p.PageNumber == actualIterator);
+            Page existingPage = pageObjects.FirstOrDefault(p => p.PageNumber == actualIterator);
 
             if (existingPage != null)
             {
@@ -105,7 +105,7 @@ namespace CourseLearning.Desktop.Pages
             else
             {
                 // Если страницы нет, добавляем новую
-                Models.Page result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects.Add(result);
             }
 
@@ -145,12 +145,12 @@ namespace CourseLearning.Desktop.Pages
         {
             if (actualIterator > pageObjects.Count)
             {
-                Models.Page result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects.Add(result);
             }
             else
             {
-                Models.Page result = ExtractPageObjectFromMarkup();
+                Page result = ExtractPageObjectFromMarkup();
                 pageObjects[actualIterator - 1] = result;
             }
         }
@@ -166,7 +166,7 @@ namespace CourseLearning.Desktop.Pages
         }
 
         //Функция, которая заполняет значения полей разметки
-        public void FillPageObjectsCourseCreating(List<Models.Page> pObjects, int iterator)
+        public void FillPageObjectsCourseCreating(List<Page> pObjects, int iterator)
         {
             if (iterator > pageObjects.Count)
             {

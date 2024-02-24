@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CourseLearning.Core\CourseLearning.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Icons\CourseLearning.ico" />
     <Resource Include="Resources\Icons\icons8-courses-48.png" />
     <Resource Include="Resources\Icons\icons8-help-48.png" />

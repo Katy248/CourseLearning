@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace CourseLearning.Desktop.Models;
+namespace CourseLearning.Core.Models;
 
 [DebuggerDisplay($"Page {nameof(PageNumber)}}}: \"{nameof(Header)}\", \"{nameof(Text)}\";")]
 public class Page
