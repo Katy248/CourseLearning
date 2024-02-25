@@ -12,7 +12,7 @@
 
 		<StackPanel Orientation="Horizontal">
 			<Image Source="/Resources/Icons/icons8-writing-48.png"/>
-			<Button>
+			<Button Command="{Binding ToCreateCommand}">
 				<TextBlock Text="Создание курсов"/>
 				<Button.Resources>
 					<Style TargetType="Border">
@@ -24,7 +24,7 @@
 
 		<StackPanel Orientation="Horizontal">
 			<Image Source="/Resources/Icons/icons8-courses-48.png"/>
-			<Button>
+			<Button Command="{Binding ToReadPageCommand}">
 				<TextBlock Text="Прохождение курсов"/>
 				<Button.Resources>
 					<Style TargetType="Border">

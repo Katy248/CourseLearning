@@ -12,10 +12,14 @@ public partial class App : Application
     {
         _serviceProvider = new ServiceCollection()
             .AddTransient<HelpViewModel>()
+            .AddTransient<OpenCourseReadViewModel>()
+            .AddTransient<ReadCourseViewModel>()
+            .AddTransient<CreateCourseViewModel>()
             .AddSingleton<SideBarViewModel>()
             .AddSingleton<MainWindow>()
             .AddSingleton<MainViewModel>()
             .AddSingleton<NavigationService>()
+            .AddTransient<CourseService>()
             .BuildServiceProvider();
     }
 

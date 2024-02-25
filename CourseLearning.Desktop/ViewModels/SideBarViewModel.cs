@@ -25,8 +25,7 @@ public partial class SideBarViewModel : ObservableObject
     [RelayCommand]
     public void ToReadPage()
     {
-        // Navigate to the read courses page
-        //contentFrame.Navigate(new ReadingCoursesPage());
+        _navigation.NavigateTo(_serviceProvider.GetRequiredService<OpenCourseReadViewModel>());
     }
     [RelayCommand]
     public void ToHelpPage()
